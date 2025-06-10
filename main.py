@@ -1,10 +1,11 @@
 import os
 from glob import glob
 from evaluate import evaluate
+from utils import load_ground_truths_from_cvat_xml
 
-# Ścieżki do zdjęć i etykiet (zakładamy: nazwa pliku = ground truth)
+ 
+gt_dict = load_ground_truths_from_cvat_xml("data/annotations.xml")
 image_paths = sorted(glob("data/photos/*.jpg"))
-ground_truths = [os.path.basename(p).split("_")[0] for p in image_paths]
+ground_truths = [gt_dict[img_path.split("\\")[-1]] for img_path in image_paths]
 
-# Przetestuj na pierwszych 100 zdjęciach
 evaluate(image_paths[:100], ground_truths[:100])
