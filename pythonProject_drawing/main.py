@@ -42,4 +42,4 @@ cv2.circle(image, (550,420),5,red, 10)
 cv2.rectangle(image, (450,500),(550,550), green,-1)
 cv2.circle(image, (width//2, height//2-35),145, blue, 5)
 cv2.imshow("ZDJ2", image)
-cv2.waitKey(0);
+cv2.waitKey(0)
